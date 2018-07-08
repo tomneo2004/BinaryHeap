@@ -87,6 +87,15 @@ namespace NP.DataStructure{
 		}
 
 		/**
+		 * Clear heap
+		 **/
+		public void Clear(){
+
+			if (_heap != null && _heap.Length > 0)
+				_heap = new T[0];
+		}
+
+		/**
 		 * Add element into heap
 		 **/
 		public void Add(T element){
