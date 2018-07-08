@@ -57,6 +57,8 @@ namespace NP.DataStructure{
 		 **/
 		Swap _swap;
 
+
+
 		/**
 		 * Swap delegate method must be provided.
 		 * 
@@ -217,7 +219,42 @@ namespace NP.DataStructure{
 
 			return removedElement;
 		}
-			
+
+		/**
+		 * Define equal delegate method
+		 * 
+		 * First: the element which is comparing to
+		 * 
+		 * Second: the element which will be compared
+		 **/
+		public delegate bool Equal(T first, T second);
+
+		/**
+		 * Check if element is exist in heap
+		 * 
+		 * First: the element which is comparing to
+		 * 
+		 * Second: the element which will be compared
+		 **/
+		public bool Contain(T element, Equal equal){
+		
+			if (equal == null) {
+				Debug.LogAssertion ("Binary Heap must have equal delegate method");
+				return false;
+			}
+
+			if (element == null)
+				return false;
+
+			IEnumerator ie = _heap.GetEnumerator ();
+			while (ie.MoveNext ()) {
+
+				if (equal (element, (T)ie.Current))
+					return true;
+			}
+
+			return false;
+		}
 	}
 }
 
