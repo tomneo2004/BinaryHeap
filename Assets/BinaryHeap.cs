@@ -31,6 +31,13 @@ namespace NP.DataStructure{
 		public T Priority{get{ return GetElement ();}}
 
 		/**
+		 * The length of heap
+		 * 
+		 * Return how many elements in heap
+		 **/
+		public int Count{get{ return _heap == null ? 0 : _heap.Length;}}
+
+		/**
 		 * Swap delegate method
 		 * 
 		 * Swap delegate method give parent and child as parameters
