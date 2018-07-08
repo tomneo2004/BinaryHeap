@@ -29,12 +29,18 @@ public class BinaryHeapTest : MonoBehaviour {
 		heap.Add (27);
 		heap.Add (17);
 		PrintHeap (heap);
+
+		heap.Remove ();
+		heap.Remove ();
+		heap.Remove ();
+		heap.Remove ();
+		PrintHeap (heap);
 	}
 
 	void PrintHeap(BinaryHeap<int> aHeap){
 	
 		int[] bHeap = aHeap.Heap;
-		string str = "BinaryHeap priority: "+aHeap.GetElement() +"\n";
+		string str = "BinaryHeap priority: "+aHeap.Priority +"\n";
 
 		for(int i=0;i<bHeap.Length;i++)
 			str += bHeap[i]+"\n";
